@@ -63,6 +63,9 @@ void procesarCombinacionesRecursivaLateralFila(int profundidad){
             printf("\n\tANIDACIÓN ENCONTRADA\n");
             guardarAnidacion();
             if(ordenEstaAnidacion == 3){
+                finTiempo();
+                pintarTiempo();
+
                 printf("\n----------------------------");
                 printf("\n\tCUADRADO MÁGICO ENCONTRADO");
                 printf("\n----------------------------\n");
@@ -270,18 +273,16 @@ int main() {
 
 
     //INICIALIZACIÓN:
+
     printf("Generación de un cuadrado de %dx%d\n",ordenNuevo,ordenNuevo);
     printf("Buscando primos con pares mayores que %llu:\n",paresNecesarios);
-
+getchar();
     rellenarCandidatos();
     pintarCandidatos();
 
 
 
 
-
-
-    int indiceCandidato = 0;//160;
     printf("El primer candidato es %llu con %llu pares\n", primosCandidatos[indiceCandidato].primo, primosCandidatos[indiceCandidato].numPares);
     printf("Pintando las posibles combinaciones de parejas teniendo en cuenta el orden del cuadrado...\n");
 
@@ -294,8 +295,10 @@ int main() {
     reservarMemoriaSolucion();
     solucion[(ordenNuevo/2)][(ordenNuevo/2)] = primoRecursivo.primo;
 
+    inicioTiempo();
     procesarCombinaciones(0,0);
-
+    finTiempo();
+    pintarTiempo();
 
 
     //FINALIZACIÓN

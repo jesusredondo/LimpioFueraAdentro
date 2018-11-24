@@ -7,8 +7,10 @@
 
 size_t tamanioBigInt = sizeof(BigInt);
 
-int ordenNuevo = 5; //Lo cambiamos por el compilador de linux.
-BigInt paresNecesarios= 25;//ordenNuevo*ordenNuevo -1; //todo: Ojo que tengo pares de más
+const int ordenNuevo = 15; //Lo cambiamos por el compilador de linux.
+BigInt paresNecesarios = ordenNuevo*ordenNuevo -1;//(BigInt) (ordenNuevo * ordenNuevo - 1); //todo: Ojo que tengo pares de más
+int indiceCandidato = 0;
+
 
 BigInt RANGO_CANDIDATOS = 200; //Los primeros candidatos que se van a comprobar.
 BigInt  RANGO_CRIBA = 100000; //Los primos que se cargan, ya cribados

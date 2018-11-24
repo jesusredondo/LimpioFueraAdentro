@@ -12,8 +12,10 @@
 extern size_t tamanioBigInt;
 
 
-extern int ordenNuevo; //Lo cambiamos por el compilador de linux.
-extern  BigInt paresNecesarios;//ordenNuevo*ordenNuevo -1; //todo: Ojo que tengo pares de más
+extern const int ordenNuevo; //Lo cambiamos por el compilador de linux.
+extern  BigInt paresNecesarios;
+extern int indiceCandidato;
+
 
 extern  BigInt RANGO_CANDIDATOS; //Los primeros candidatos que se van a comprobar.
 extern BigInt  RANGO_CRIBA; //Los primos que se cargan, ya cribados

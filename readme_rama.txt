@@ -1,0 +1,1 @@
+Rama con el algoritmo corriendo de fuera hacia dentro sin paralelización.
