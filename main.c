@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/resource.h>
+#include <omp.h>
 
 //Mis includes
 #include "solucion.h"
@@ -63,9 +64,6 @@ void procesarCombinacionesRecursivaLateralFila(int profundidad){
             printf("\n\tANIDACIÓN ENCONTRADA\n");
             guardarAnidacion();
             if(ordenEstaAnidacion == 3){
-                finTiempo();
-                pintarTiempo();
-
                 printf("\n----------------------------");
                 printf("\n\tCUADRADO MÁGICO ENCONTRADO");
                 printf("\n----------------------------\n");
@@ -73,10 +71,11 @@ void procesarCombinacionesRecursivaLateralFila(int profundidad){
                 if (comprobarSolucion()){
                     printf("Se ha encontrado una solución correcta al problema.\n");
                 }
-
-
+                finTiempo();
+                pintarTiempo();
                 destruirMemoria();
                 liberarMemoriaSolucion();
+
                 exit(0);
 
 
@@ -244,7 +243,7 @@ void procesarCombinaciones(int numeroIndice, int porCualAndo){
 
 int main() {
 
-    const rlim_t kStackSize = 128L * 1024L * 1024L;   // min stack size = 64 Mb
+/*    const rlim_t kStackSize = 128L * 1024L * 1024L;   // min stack size = 64 Mb
     struct rlimit rl;
     int result;
 
@@ -268,21 +267,23 @@ int main() {
     printf ("\nStack Limit = %llu and %llu max\n", limit.rlim_cur, limit.rlim_max);
 
     printf("Let's test!\n");
-
+*/
 
 
 
     //INICIALIZACIÓN:
-
     printf("Generación de un cuadrado de %dx%d\n",ordenNuevo,ordenNuevo);
     printf("Buscando primos con pares mayores que %llu:\n",paresNecesarios);
-getchar();
+
     rellenarCandidatos();
     pintarCandidatos();
 
 
 
 
+
+
+    int indiceCandidato = 0;//160;
     printf("El primer candidato es %llu con %llu pares\n", primosCandidatos[indiceCandidato].primo, primosCandidatos[indiceCandidato].numPares);
     printf("Pintando las posibles combinaciones de parejas teniendo en cuenta el orden del cuadrado...\n");
 
@@ -294,7 +295,6 @@ getchar();
     inicializarMemoria();
     reservarMemoriaSolucion();
     solucion[(ordenNuevo/2)][(ordenNuevo/2)] = primoRecursivo.primo;
-
     inicioTiempo();
     procesarCombinaciones(0,0);
     finTiempo();

@@ -1,1 +1,2 @@
-Rama con el algoritmo corriendo de fuera hacia dentro sin paralelización.
+Rama para comprobar si existen más anidaciones de 3x3 que de 7x7 en un cuadrado de 7x7.
+Determinar este número de anidación es fundamental para orientar la solución a una anidadción de dentro a fuera o viceversa.
